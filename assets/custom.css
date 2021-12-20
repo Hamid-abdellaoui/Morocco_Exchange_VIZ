@@ -1,0 +1,128 @@
+#sidebar {
+  text-align: center;
+  padding: 1rem 1rem;
+  /*background-color: #f8f9fa;*/
+}
+
+#sidebar h2 {
+  text-align: left;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+/* Hide the blurb on a small screen */
+#blurb {
+  display: none;
+}
+
+
+#sidebar-toggle {
+  display: none;
+}
+
+#collapse *:first-child {
+  margin-top: 1rem;
+}
+
+
+#page-content {
+  padding: 1rem 0rem;
+  text-align: center;
+}
+
+@media (min-width: 48em) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+    text-align: left;
+    transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+  }
+
+  #sidebar-toggle {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: top 0.3s ease-in-out;
+    border: none;
+  }
+
+  /* add negative margin to sidebar to achieve the collapse */
+  #sidebar.collapsed {
+    margin-left: -15.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* move the sidebar toggle up to the top left corner */
+  #sidebar.collapsed #sidebar-toggle {
+    border: none;
+    outline: none;
+  }
+  #sidebar.collapsed #sidebar-toggle:focus-visible{
+    outline: none;
+    border: none;
+  }
+  /* also adjust margin of page content */
+  #sidebar.collapsed ~ #page-content {
+    margin-left: 6.5rem;
+  }
+
+  /* move all contents of navbar other than header (containing toggle) further
+     off-screen */
+  #sidebar.collapsed > *:not(:first-child) {
+    margin-left: -6rem;
+    margin-right: 6rem;
+  }
+
+  /* reveal the blurb on a large screen */
+  #blurb {
+    display: block;
+  }
+
+  /* Hide the toggle on a large screen */
+  #navbar-toggle,#KPI-toggle {
+    display: none;
+  }
+
+  #collapse, #mycollapse {
+    display: block;
+  }
+  
+  #mycollapse{
+    display: inline-block;
+  }
+
+  /* set margins of the main content so that it doesn't overlap the sidebar */
+  #page-content {
+    margin-left: 20rem;
+    margin-right: 2rem;
+    transition: margin-left 0.3s ease-in-out;
+  }
+}
+.KPI, .mycard{
+  margin: 10px !important;
+  color: #0e7b96;
+  border: 1px solid rgba(239, 239, 253, 0.288);
+  border-radius: 15px;
+  background: #ffffff1e;
+  box-shadow:  4px 4px 5px #8383831f,
+               -1px -1px 4px #8383831f;
+}
+*:focus, *:active, * ::shadow{
+  outline: none !important;
+  border: none;
+}
+.testing-colors{
+  color: #058f48 #f3f3f3 #005064 rgba(255, 255, 255, 0.925);
+
+}
+.bCard{border: 1px solid rgba(239, 239, 253, 0.288);
+  border-radius: 15px;
+  background: #ffffff1e;
+  padding: 2px;
+}
+*::after, *::before{
+  box-sizing:unset;
+}
