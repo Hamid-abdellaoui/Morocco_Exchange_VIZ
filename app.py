@@ -99,7 +99,7 @@ def drawFigure():
         "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
         "Amount": [4, 1, 2, 2, 4, 5],
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]})
-    fig = px.bar(df, x="Fruit", y="Amount", color="City")
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", color_continuous_scale=px.colors.sequential.Viridis)
     fig.update_layout({'plot_bgcolor': 'rgba(138, 138, 138, 0)',
                       'paper_bgcolor': 'rgba(138, 138, 138, 0)', },
     font=dict(
@@ -195,8 +195,6 @@ row = html.Div([
 
         ],className="bCard")
     
-
-
 ])
 
 
