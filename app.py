@@ -9,7 +9,7 @@ from dash_bootstrap_templates import load_figure_template
 
 import math
 
-millnames = ['',' Thousand',' Million',' Billion',' Trillion']
+millnames = ['',' Mille',' Million',' Milliard',' Mille milliards']
 
 def millify(n):
     n = float(n)
@@ -24,17 +24,14 @@ load_figure_template(["CYBORG", "QUARTZ"])
 
 
 ### importing Data and extracting 
-Export_total = pd.read_csv('data/Export_total.csv')
-flux = pd.read_csv('data/flux.csv')
-utilisation = Export_total.groupby(["Libellé du groupement d'utilisation"]).sum()
-pays_et_utilisation = Export_total.groupby(['Libellé du pays',"Libellé du groupement d'utilisation"]).sum()
-flux_et_utilisation = Export_total.groupby(['Libellé du flux',"Libellé du groupement d'utilisation"]).sum()
-division = Export_total.groupby(["Libellé de la division CTCI"]).sum().sort_values('Total dh', ascending=False)
-continent = Export_total.groupby(["Continent"]).sum()
-continent_et_utilisation = Export_total.groupby(["Continent","Libellé du groupement d'utilisation"]).sum()
-max=millify(Export_total.groupby(["Continent"]).sum().sort_values('Total dh', ascending=False)[''])
-#KPI1_index = Export_total.groupby(["Continent"]).sum().max()
-
+Export_total = pd.read_csv('Data/Export_total.csv')
+new_df = pd.read_csv('Data/new_df.csv')
+utilisation_import=Export_total[(Export_total["Libellé du flux"]=="Importations CAF")].groupby(["Libellé du groupement d'utilisation"]).sum().sort_values('Total dh', ascending=False)
+utilisation_export=Export_total[(Export_total["Libellé du flux"]=="Exportations FAB")].groupby(["Libellé du groupement d'utilisation"]).sum().sort_values('Total dh', ascending=False)
+pays_export=Export_total[(Export_total["Libellé du flux"]=="Exportations FAB")].groupby(["Libellé du pays"]).sum().sort_values('Total dh', ascending=False)
+pays_import=Export_total[(Export_total["Libellé du flux"]=="Importations CAF")].groupby(["Libellé du pays"]).sum().sort_values('Total dh', ascending=False)
+continent_import=Export_total[(Export_total["Libellé du flux"]=="Importations CAF")].groupby(["Continent"]).sum().sort_values('Total dh', ascending=False)
+continent_export=Export_total[(Export_total["Libellé du flux"]=="Exportations FAB")].groupby(["Continent"]).sum().sort_values('Total dh', ascending=False)
 
 app = dash.Dash(suppress_callback_exceptions=True,
                 external_stylesheets=[dbc.themes.CYBORG, dbc.icons.FONT_AWESOME, "https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
