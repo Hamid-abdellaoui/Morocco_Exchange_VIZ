@@ -7,9 +7,33 @@ import pandas as pd
 from plotly import graph_objs
 from dash_bootstrap_templates import load_figure_template
 
+import math
+
+millnames = ['',' Thousand',' Million',' Billion',' Trillion']
+
+def millify(n):
+    n = float(n)
+    millidx = max(0,min(len(millnames)-1,
+                        int(math.floor(0 if n == 0 else math.log10(abs(n))/3))))
+
+    return '{:.0f}{}'.format(n / 10**(3 * millidx), millnames[millidx])
+
 
 
 load_figure_template(["CYBORG", "QUARTZ"])
+
+
+### importing Data and extracting 
+Export_total = pd.read_csv('data/Export_total.csv')
+flux = pd.read_csv('data/flux.csv')
+utilisation = Export_total.groupby(["Libellé du groupement d'utilisation"]).sum()
+pays_et_utilisation = Export_total.groupby(['Libellé du pays',"Libellé du groupement d'utilisation"]).sum()
+flux_et_utilisation = Export_total.groupby(['Libellé du flux',"Libellé du groupement d'utilisation"]).sum()
+division = Export_total.groupby(["Libellé de la division CTCI"]).sum().sort_values('Total dh', ascending=False)
+continent = Export_total.groupby(["Continent"]).sum()
+continent_et_utilisation = Export_total.groupby(["Continent","Libellé du groupement d'utilisation"]).sum()
+max=millify(Export_total.groupby(["Continent"]).sum().sort_values('Total dh', ascending=False)[''])
+#KPI1_index = Export_total.groupby(["Continent"]).sum().max()
 
 
 app = dash.Dash(suppress_callback_exceptions=True,
@@ -124,13 +148,13 @@ def drawFigure():
 def drawText():
     return dbc.Row([
         dbc.Row([
-            dbc.Col(dbc.Nav([html.H2("Text")], pills=True),
+            dbc.Col(dbc.Nav([html.P(max+" Mad"+ "KPI1_index")]),
                     className="KPI", xs=12, sm=4, md=4, lg=4, xl=2),
-            dbc.Col(dbc.Nav([html.H2("Text")], pills=True),
+            dbc.Col(dbc.Nav([html.H2("Text")]),
                     className="KPI", xs=12, sm=4, md=4, lg=4, xl=2),
-            dbc.Col(dbc.Nav([html.H2("Text")], pills=True),
+            dbc.Col(dbc.Nav([html.H2("Text")]),
                     className="KPI", xs=12, sm=4, md=4, lg=4, xl=2),
-            dbc.Col(dbc.Nav([html.H2("Text")], pills=True),
+            dbc.Col(dbc.Nav([html.H2("Text")]),
                     className="KPI", xs=12, sm=4, md=4, lg=4, xl=2),
         ], className="justify-content-center", style={'textAlign': 'center'})
     ], className="justify-content-end", id="mycollapse")
