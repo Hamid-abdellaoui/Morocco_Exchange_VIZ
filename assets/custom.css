@@ -1,20 +1,19 @@
 #sidebar {
   text-align: center;
   padding: 1rem 1rem;
-  /*background-color: #f8f9fa;*/
 }
-
 #sidebar h2 {
   text-align: left;
   margin-bottom: 0;
   margin-right: 0;
 }
-
+body{
+  font-size: medium;
+}
 /* Hide the blurb on a small screen */
 #blurb {
   display: none;
 }
-
 
 #sidebar-toggle {
   display: none;
@@ -23,7 +22,6 @@
 #collapse *:first-child {
   margin-top: 1rem;
 }
-
 
 #page-content {
   padding: 1rem 0rem;
@@ -36,7 +34,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 20rem;
+    width: 18rem;
     text-align: left;
     transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out;
   }
@@ -51,8 +49,8 @@
 
   /* add negative margin to sidebar to achieve the collapse */
   #sidebar.collapsed {
-    margin-left: -15.5rem;
-    padding-right: 0.5rem;
+    margin-left: -14.5rem;
+    padding-right: 0rem;
   }
 
   /* move the sidebar toggle up to the top left corner */
@@ -66,7 +64,7 @@
   }
   /* also adjust margin of page content */
   #sidebar.collapsed ~ #page-content {
-    margin-left: 6.5rem;
+    margin-left: 4.5rem;
   }
 
   /* move all contents of navbar other than header (containing toggle) further
@@ -100,15 +98,36 @@
     margin-right: 2rem;
     transition: margin-left 0.3s ease-in-out;
   }
+  .switcher{
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 575px) {
+  .KPI{
+    min-width: 70px;
+  }
+  .switcher{
+    font-size: 16px !important;
+  }
 }
 .KPI, .mycard{
-  margin: 10px !important;
-  color: #0e7b96;
+  color: #dededf;
   border: 1px solid rgba(239, 239, 253, 0.288);
   border-radius: 15px;
   background: #ffffff1e;
   box-shadow:  4px 4px 5px #8383831f,
                -1px -1px 4px #8383831f;
+}
+.mycard{
+  margin: 8px !important;
+  padding: 6px;
+}
+.KPI{
+  min-width: fit-content;
+  max-width: min-content;
+  font-size: small;
+  padding: 10px !important;
+  margin: 8px auto !important;
 }
 *:focus, *:active, * ::shadow{
   outline: none !important;
@@ -118,11 +137,35 @@
   color: #058f48 #f3f3f3 #005064 rgba(255, 255, 255, 0.925);
 
 }
-.bCard{border: 1px solid rgba(239, 239, 253, 0.288);
+.bCard{
+  border: 1px solid rgba(239, 239, 253, 0.288);
   border-radius: 15px;
   background: #ffffff1e;
-  padding: 2px;
+  min-width: min-content;
+  padding: 10px;
+  margin: 10px auto !important;
 }
 *::after, *::before{
   box-sizing:unset;
+}
+.title{
+  color: #f0f0f0;
+  font-weight: 400;
+  font-size: small;
+
+}
+.titre{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.lead{
+  width: auto;
+}
+.switcher{
+  font-size: 20px;
+  display: inline-flex;
+
+}
+.switcher_icon{
+  font-size: medium;
 }
