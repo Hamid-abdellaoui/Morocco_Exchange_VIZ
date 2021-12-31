@@ -24,8 +24,8 @@
   --primary: #083358;
   --secondary: #F67280;
   --success: #0074E4;
-  --info: #74DBEF;
-  --warning: #FC3C3C;
+  --info: #7ce5fa;
+  --warning: #ff474781;
   --danger: #FF4057;
   --light: #F2F2F0;
   --dark: #072247;
@@ -59,7 +59,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: Nunito;
-  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--white);

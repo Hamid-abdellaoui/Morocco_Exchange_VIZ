@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
 #sidebar {
   text-align: center;
   padding: 1rem 1rem;
@@ -8,7 +9,7 @@
   margin-right: 0;
 }
 body{
-  font-size: medium;
+  font-size: 14px !important;
 }
 /* Hide the blurb on a small screen */
 #blurb {
@@ -78,20 +79,16 @@ body{
   #blurb {
     display: block;
   }
-
   /* Hide the toggle on a large screen */
   #navbar-toggle,#KPI-toggle {
     display: none;
   }
-
   #collapse, #mycollapse {
     display: block;
   }
-  
   #mycollapse{
     display: inline-block;
   }
-
   /* set margins of the main content so that it doesn't overlap the sidebar */
   #page-content {
     margin-left: 20rem;
@@ -112,9 +109,9 @@ body{
 }
 .KPI, .mycard{
   color: #dededf;
-  border: 1px solid rgba(239, 239, 253, 0.288);
+  border: 1px solid var(--info);
   border-radius: 15px;
-  background: #ffffff1e;
+  background: #35353510;
   box-shadow:  4px 4px 5px #8383831f,
                -1px -1px 4px #8383831f;
 }
@@ -124,23 +121,22 @@ body{
 }
 .KPI{
   min-width: fit-content;
-  max-width: min-content;
   font-size: small;
   padding: 10px !important;
-  margin: 8px auto !important;
+  margin: 4px auto !important;
+}
+.justify-content-between{
+  margin: auto 30px !important;
 }
 *:focus, *:active, * ::shadow{
   outline: none !important;
   border: none;
 }
-.testing-colors{
-  color: #058f48 #f3f3f3 #005064 rgba(255, 255, 255, 0.925);
 
-}
 .bCard{
   border: 1px solid rgba(239, 239, 253, 0.288);
   border-radius: 15px;
-  background: #ffffff1e;
+  background: #8f8f8f2a;
   min-width: min-content;
   padding: 10px;
   margin: 10px auto !important;
@@ -162,10 +158,119 @@ body{
   width: auto;
 }
 .switcher{
-  font-size: 20px;
+  font-size: 17px;
   display: inline-flex;
 
 }
 .switcher_icon{
-  font-size: medium;
+  font-size: 12px;
+}
+
+iframe::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px lightseagreen;
+	background-color: #f1f0f0;
+	border-radius: 12px;
+}
+
+iframe::-webkit-scrollbar
+{
+	width: 16px;
+	background-color: #F5F5F5;
+}
+
+iframe::-webkit-scrollbar-thumb
+{
+	border-radius: 12px;
+	-webkit-box-shadow: inset 0 0 6px rgba(49, 139, 102, 0.911);
+	background-color: rgba(89, 129, 112, 0.164);
+}
+iframe::-webkit-scrollbar-thumb:hover {
+	background-image: -webkit-gradient(linear,
+									   40% 0%,
+									   75% 84%,
+									   from(rgba(25, 138, 132, 0.541)),
+									   to(#19915991),
+									   color-stop(.6,#4ce6a696))
+
+}
+.link{
+  color: #f4fffe;
+  font-size: x-large;
+}
+.link:hover{
+  color: tomato;
+}
+.testing-colors{
+  color: #99004d,#07224748 rgb(196, 125, 230), #fc76c4, #a15e94, #ce5ec6, #ffd3d3, '
+  #29d4f7, #FF5677, #ff74ff, #7c0b69, #f7c76f rgba(95, 158, 160, 0.158) saddlebrown darkslateblue lightblue
+  #862d52 rgb(121, 4, 230)  #212121, #e4e4e410
+  aliceblue, antiquewhite, aqua, aquamarine, azure,
+            rgb(180, 180, 180), bisque, black, blanchedalmond, blue,
+            blueviolet, brown, burlywood,
+            chartreuse, chocolate, coral, cornflowerblue,
+            cornsilk, crimson, cyan, darkblue, darkcyan,
+            darkgoldenrod, #e6f8f8, darkgrey, darkgreen,
+            darkkhaki, darkmagenta, darkolivegreen, #974d5d9a,
+            darkorchid, darkred, darksalmon, darkseagreen,
+            darkslategray, darkslategrey,
+            darkturquoise, darkviolet, rgb(94, 2, 51), rgb(128, 3, 111),
+            dimgray, rgb(216, 216, 216), dodgerblue, firebrick,
+            floralwhite, forestgreen, fuchsia, gainsboro,
+            ghostwhite, gold, goldenrod, gray, grey, green,
+            greenyellow, honeydew, hotpink, indianred, indigo,
+            ivory, khaki, lavender, lavenderblush, lawngreen,
+            lemonchiffon, lightblue, lightcoral, lightcyan,
+            lightgoldenrodyellow, lightgray, lightgrey,
+            lightgreen, lightpink, lightsalmon, lightseagreen,
+            lightskyblue, lightslategray, lightslategrey,
+            lightsteelblue, lightyellow, lime, limegreen,
+            linen, magenta, maroon, mediumaquamarine,
+            mediumblue, mediumorchid, mediumpurple,
+            mediumseagreen, mediumslateblue, mediumspringgreen,
+            mediumturquoise, mediumvioletred, midnightblue,
+            mintcream, mistyrose, moccasin, navajowhite, navy,
+            oldlace, olive, olivedrab, orange, orangered,
+            orchid, palegoldenrod, palegreen, paleturquoise,
+            palevioletred, papayawhip, peachpuff, peru, pink,
+            plum, powderblue, purple, red, rosybrown,
+            royalblue, rebeccapurple, salmon,
+            sandybrown, seagreen, seashell, sienna, silver,
+            skyblue, slateblue, slategray, slategrey, snow,
+            springgreen, steelblue, tan, teal, thistle, tomato,
+            yellow, yellowgreen;
+
+}
+.fa, .fab, .fas, .far{
+  color: rgb(218, 218, 218) !important;
+}
+.fa:hover, .fab:hover, .fas:hover, .far:hover{
+  color: rgb(255, 255, 255) !important;
+}
+
+div.Select-control {
+  background-color: #ffffff62;
+  border-radius: 4px;
+  border: 1px solid var(--info) !important;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  overflow: hidden;
+  }
+
+.Select-value-label{
+  color: #FFFFFF !important; 
+  }
+ html{
+   font-size: 0.8rem !important;
+ }
+  
+b,.titre{
+  font-family: 'Teko', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+  }
+.modebar{
+    display: none !important;
 }
