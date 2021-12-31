@@ -1,7 +1,6 @@
 ################################ imporing libraries ################################
 from re import X
 import dash
-from numpy import False_
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
