@@ -4,7 +4,6 @@ import dash
 from numpy import False_
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-from dash.html.Col import Col
 import dash_bootstrap_components as dbc
 from dash import Input, Output, State, dcc, html
 from dash_bootstrap_components._components.Navbar import Navbar
@@ -12,14 +11,12 @@ import plotly.express as px
 import pandas as pd
 from dash_bootstrap_templates import load_figure_template
 import math
-import dash_table
 
 
 ################################ importing Data ################################
 ################################################################################
 
 Export_total = pd.read_csv("Data/Export_total.csv")
-new_df = pd.read_csv("Data/new_df.csv")
 annual = pd.read_csv("Data/Annual_processed.csv", sep=",")
 export_map=pd.read_csv('Data/for_map0.csv',sep=',')
 import_map=pd.read_csv('Data/for_map1.csv',sep=',')
@@ -82,7 +79,7 @@ def millify(n):
 
     return "{:.0f}{}".format(n / 10 ** (3 * millidx), millnames[millidx])
 
-# some variables for KPIs
+########## some variables for KPIs
 max_p_i = millify(pays_import["Valeur DHS 2020"][0])
 max_p_i_i = pays_import.index[0]
 
@@ -97,13 +94,13 @@ max_t_e_i = total_export.index[0]
 
 
 
-################################ Loading the theme ################################
+################################ Loading the theme and creating my personnalised palette ################################
 load_figure_template(["QUARTZ"])
 my_palette=["#29d4f7","#FF5677","#40f190","#B958A5","#f7c76f","cadetblue", "saddlebrown", "darkslateblue"]
 
 
 
-
+############# initialisation de l'app  dash #########
 
 app = dash.Dash(
     suppress_callback_exceptions=True,
@@ -118,94 +115,7 @@ app = dash.Dash(
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
 
-sidebar_header = dbc.Row(
-    [
-        dbc.Col(
-            html.H6("OEM", className="display-6 "),
-            align="start",
-            xs=8,
-            md=8,
-            lg=8,
-            xl=8,
-            xxl=8,
-            sm=8,
-        ),
-        dbc.Col(" ", xs=2, md=2, lg=2, xl=2, xxl=2, sm=2),
-        dbc.Col(
-            [
-                html.Button(
-                    # use the Bootstrap navbar-toggler classes to style
-                    html.Span(className="fa fa-bars"),
-                    className="navbar-toggler",
-                    # the navbar-toggler classes don't set color
-                    style={
-                        "color": "rgba(255, 255, 255, 0.9)",
-                        "border": "none",
-                    },
-                    id="navbar-toggle",
-                ),
-                html.Button(
-                    # use the Bootstrap navbar-toggler classes to style
-                    html.Span(className="fa fa-bars"),
-                    className="navbar-toggler",
-                    # the navbar-toggler classes don't set color
-                    style={
-                        "color": "rgba(255, 255, 255, 0.9)",
-                        "border": "none",
-                    },
-                    id="sidebar-toggle",
-                ),
-            ],
-            # the column containing the toggle will be only as wide as the
-            # toggle, resulting in the toggle being right aligned
-            className="mb-3",
-            # vertically align the toggle in the center
-            align="end",
-            xs=2,
-            md=2,
-            lg=2,
-            xl=2,
-            xxl=2,
-            sm=2,
-        ),
-    ]
-)
-
-sidebar = html.Div(
-    [
-        sidebar_header,
-        html.Div(
-            [
-                html.Hr(),
-                html.P(
-                    "Ce tableau de bord s'inscrit dans le cadre d'un projet académique de data visualisation",
-                    className="lead",
-                ),
-            ],
-            id="blurb",
-        ),
-        # use the Collapse component to animate hiding / revealing links
-        dbc.Collapse(
-            dbc.Nav(
-                [
-                    dbc.NavLink("Home", href="/", active="exact"),
-                    dbc.NavLink("Data prep", href="/page-1", active="exact"),
-                    dbc.NavLink("About", href="/page-2", active="exact"),
-                ],
-                vertical=True,
-                pills=True,
-            ),
-            id="collapse",
-        ),
-    ],
-    id="sidebar",
-)
-def table():
-    
-    return html.Div(
-                style={"textAlign": "center"},
-                className="mycard",)
-    
+######### the functions used to draw the graphs #####
     
 def drawFig():
     labels = continent_import.index
@@ -260,8 +170,8 @@ def drawMap():
             html.Div(
                 [
             dbc.Tabs([
-                dbc.Tab(label="Exportations", tab_id="tab-1",tabClassName="flex-grow-1 text-center",active_label_style={'background-color':'rgb(196, 125, 230)','color':'#e6f8f8'},tab_style={'margin':'0px'} , label_style={'background-color':'rgba(95, 158, 160, 0.158)','color':'#e6f8f8'}),
-                dbc.Tab(label="Importations", tab_id="tab-2",tabClassName="flex-grow-1 text-center",active_label_style={'background-color':'rgb(196, 125, 230)','color':'#e6f8f8'},tab_style={'margin':'0px'} , label_style={'background-color':'rgba(95, 158, 160, 0.158)','color':'#e6f8f8'}),
+                dbc.Tab(label="Exportations", tab_id="tab-1",tabClassName="flex-grow-1 text-center",active_label_style={'background-color':'rgb(196, 125, 230)','color':'rgb(42, 42, 53)'},tab_style={'margin':'0px'} , label_style={'background-color':'#e9e9e92a','color':'rgb(42, 42, 53)'}),
+                dbc.Tab(label="Importations", tab_id="tab-2",tabClassName="flex-grow-1 text-center",active_label_style={'background-color':'rgb(196, 125, 230)','color':'rgb(42, 42, 53)'},tab_style={'margin':'0px'} , label_style={'background-color':'#e9e9e92a','color':'rgb(42, 42, 53)'}),
                 ],
             id="tabs",
             active_tab="tab-1",style={'padding':'0px 40px',}
@@ -312,7 +222,6 @@ def drawFigure3():
         ]
     )
 
-
 def drawFigure4():
     fig = px.pie(utilisation_export,
     values='Total dh',
@@ -350,12 +259,11 @@ def drawFigure4():
         ]
     )
 
-
-def drawFigure():
+def drawSections(col):
     fig = px.bar(
-        sections.sort_values(by="total exports", ascending=False),
+        sections.sort_values(by=col, ascending=False),
         x=sections.index,
-        y=["total exports","total imports"],
+        y=col,
         orientation='v',
         color_discrete_sequence=my_palette,
     )
@@ -383,7 +291,7 @@ def drawFigure():
         [
             html.Div(
                 [
-                    html.Div('Partitions des imports/exports par section'),
+                    html.Div("Partitions des "+col[6:]+"  par section"),
                     dcc.Graph(
                         id="example-graph",
                         figure=fig,
@@ -396,7 +304,6 @@ def drawFigure():
             )
         ]
     )
-
 
 def myf(Title,theid):
     return html.Div(
@@ -434,6 +341,9 @@ def myf(Title,theid):
         ]
     )
 
+
+######## function to return the KPIs cards ######
+ 
 def kpi1():
     return html.Div(
         [
@@ -507,9 +417,96 @@ def kpi4():
     )
 
 
+########## The header of sidebare ##########
+sidebar_header = dbc.Row(
+    [
+        dbc.Col(
+            html.H6("OEM", className="display-6 "),
+            align="start",
+            xs=8,
+            md=8,
+            lg=8,
+            xl=8,
+            xxl=8,
+            sm=8,
+        ),
+        dbc.Col(" ", xs=2, md=2, lg=2, xl=2, xxl=2, sm=2),
+        dbc.Col(
+            [
+                html.Button(
+                    # use the Bootstrap navbar-toggler classes to style
+                    html.Span(className="fa fa-bars"),
+                    className="navbar-toggler",
+                    # the navbar-toggler classes don't set color
+                    style={
+                        "color": "rgba(255, 255, 255, 0.9)",
+                        "border": "none",
+                    },
+                    id="navbar-toggle",
+                ),
+                html.Button(
+                    # use the Bootstrap navbar-toggler classes to style
+                    html.Span(className="fa fa-bars"),
+                    className="navbar-toggler",
+                    # the navbar-toggler classes don't set color
+                    style={
+                        "color": "rgba(255, 255, 255, 0.9)",
+                        "border": "none",
+                    },
+                    id="sidebar-toggle",
+                ),
+            ],
+            # the column containing the toggle will be only as wide as the
+            # toggle, resulting in the toggle being right aligned
+            className="mb-3",
+            # vertically align the toggle in the center
+            align="end",
+            xs=2,
+            md=2,
+            lg=2,
+            xl=2,
+            xxl=2,
+            sm=2,
+        ),
+    ]
+)
+ 
+########### the sidebar #############
+sidebar = html.Div(
+    [
+        sidebar_header,
+        html.Div(
+            [
+                html.Hr(),
+                html.P(
+                    "Ce tableau de bord s'inscrit dans le cadre d'un projet académique de data visualisation",
+                    className="lead",
+                ),
+            ],
+            id="blurb",
+        ),
+        # use the Collapse component to animate hiding / revealing links
+        dbc.Collapse(
+            dbc.Nav(
+                [
+                    dbc.NavLink("Home", href="/", active="exact"),
+                    dbc.NavLink("Data prep", href="/page-1", active="exact"),
+                    dbc.NavLink("About", href="/page-2", active="exact"),
+                ],
+                vertical=True,
+                pills=True,
+            ),
+            id="collapse",
+        ),
+    ],
+    id="sidebar",
+)
+ 
+######### items to define the theme and change it #####
 content = html.Div(id="page-content")
 blank = html.Div(id="blank_output")
 
+############ the home page (dashboard) ###########
 row = html.Div(
     [
         dbc.Row(
@@ -604,8 +601,8 @@ row = html.Div(
                         dbc.Col([drawFigure3()], xs=12, sm=12, md=6, lg=6, xl=6),
                         dbc.Col([drawFigure4()], xs=12, sm=12, md=6, lg=6, xl=6),
                         dbc.Col([drawMap()], xs=12, sm=12, md=12, lg=12, xl=12),
-                        dbc.Col([drawFigure()], xs=12, sm=12, md=12, lg=6, xl=6),
-                        dbc.Col([table()], xs=12, sm=12, md=12, lg=6, xl=6),
+                        dbc.Col([drawSections("total exports")], xs=12, sm=12, md=12, lg=6, xl=6),
+                        dbc.Col([drawSections("total imports")], xs=12, sm=12, md=12, lg=6, xl=6),
                     ],
                     id="",
                     style={"textAlign": "center"},
@@ -619,7 +616,20 @@ row = html.Div(
     ],
 )
 
+
+
+
+
+
+########################################################################################
+#################################### callbacks #########################################
+
+
+############  assigning content to pages depending on a url ############ 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, blank, content])
+
+
+############  swwitching between themes ############ 
 app.clientside_callback(
     """
     function(themeToggle) {
@@ -635,7 +645,7 @@ app.clientside_callback(
     Input("theme", "value"),
 )
 
-
+############  render page according to path ############ 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
     if pathname == "/":
@@ -718,7 +728,7 @@ def render_page_content(pathname):
         ]
     )
 
-
+############  sidebar toggletr ############ 
 @app.callback(
     Output("sidebar", "className"),
     [Input("sidebar-toggle", "n_clicks")],
@@ -729,7 +739,7 @@ def toggle_classname(n, classname):
         return "collapsed"
     return ""
 
-
+############  navbar toggletr ############ 
 @app.callback(
     Output("collapse", "is_open"),
     [Input("navbar-toggle", "n_clicks")],
@@ -740,7 +750,7 @@ def toggle_collapse(n, is_open):
         return not is_open
     return is_open
 
-
+############  emprtations/exportations by country line chart ############ 
 @app.callback(Output("time-series-chart", "figure"), [Input("ticker", "value")])
 def display_time_series(ticker):
     fig = px.line(annualdf[(annualdf['Libellé du pays']==ticker)], x='level_2', y=0, color='Libellé du flux',
@@ -766,7 +776,7 @@ def display_time_series(ticker):
     fig.update_yaxes(showline=True, linewidth=1, linecolor='rgba(9, 145, 199, 0.932)', gridcolor='rgba(240, 240, 240, 0.233)  ')
     return fig
 
-
+############  the map graph (Choropleth) ############ 
 @app.callback(Output("content", "children"), [Input("tabs", "active_tab")])
 def switch_tab(at):
     if at == "tab-1":
@@ -861,21 +871,7 @@ def switch_tab(at):
                     ),
     
     
-    
-    
-    
-    
-@app.callback(
-    Output("mycollapse", "is_open"),
-    [Input("KPI-toggle", "n_clicks")],
-    [State("mycollapse", "is_open")],
-)
-def toggle_collapse(n, is_open):
-    if n:
-        return not is_open
-    return is_open
-
-
+############ starting the server ########
 if __name__ == "__main__":
     app.run_server(
         port=8080,

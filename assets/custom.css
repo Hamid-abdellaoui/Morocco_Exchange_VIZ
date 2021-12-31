@@ -108,22 +108,24 @@ body{
   }
 }
 .KPI, .mycard{
-  color: #dededf;
-  border: 1px solid var(--info);
+  color: #dddddd;
+  /* border: 1px solid var(--info); */
   border-radius: 15px;
-  background: #35353510;
-  box-shadow:  4px 4px 5px #8383831f,
-               -1px -1px 4px #8383831f;
+background: linear-gradient(145deg, #07224757, #0d2e5c57);
+box-shadow:  4px 4px 4px rgba(4, 45, 65, 0.527),
+             0px 0px 0px #223b46;
+margin-bottom: 20px !important;
 }
 .mycard{
-  margin: 8px !important;
+  margin: 8px ;
   padding: 6px;
 }
 .KPI{
   min-width: fit-content;
   font-size: small;
   padding: 10px !important;
-  margin: 4px auto !important;
+  margin: 5px auto ;
+  border-radius: 22px;
 }
 .justify-content-between{
   margin: auto 30px !important;
@@ -136,9 +138,9 @@ body{
 .bCard{
   border: 1px solid rgba(239, 239, 253, 0.288);
   border-radius: 15px;
-  background: #8f8f8f2a;
+  background: #e9e9e92a;
   min-width: min-content;
-  padding: 10px;
+  padding: 14px;
   margin: 10px auto !important;
 }
 *::after, *::before{
@@ -201,8 +203,42 @@ iframe::-webkit-scrollbar-thumb:hover {
 .link:hover{
   color: tomato;
 }
+
+.fa, .fab, .fas, .far{
+  color: rgb(218, 218, 218) !important;
+}
+.fa:hover, .fab:hover, .fas:hover, .far:hover{
+  color: rgb(255, 255, 255) !important;
+}
+
+div.Select-control {
+  background-color: #e9e9e92a;
+  border-radius: 4px;
+  border: 0.4px solid rgba(239, 239, 253, 0.288) !important;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  overflow: hidden;
+  }
+
+.Select-value-label{
+  color: #FFFFFF !important; 
+  }
+ html{
+   font-size: 0.8rem !important;
+ }
+  
+b,.titre{
+  font-family: 'Teko', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+  }
+.modebar{
+    display: none !important;
+}
 .testing-colors{
-  color: #99004d,#07224748 rgb(196, 125, 230), #fc76c4, #a15e94, #ce5ec6, #ffd3d3, '
+  color: #327777  rgb(255, 86, 119),rgb(41, 212, 247) #07224748 rgb(196, 125, 230), #fc76c4, #a15e94, #ce5ec6, #ffd3d3, '
   #29d4f7, #FF5677, #ff74ff, #7c0b69, #f7c76f rgba(95, 158, 160, 0.158) saddlebrown darkslateblue lightblue
   #862d52 rgb(121, 4, 230)  #212121, #e4e4e410
   aliceblue, antiquewhite, aqua, aquamarine, azure,
@@ -229,7 +265,7 @@ iframe::-webkit-scrollbar-thumb:hover {
             mediumblue, mediumorchid, mediumpurple,
             mediumseagreen, mediumslateblue, mediumspringgreen,
             mediumturquoise, mediumvioletred, midnightblue,
-            mintcream, mistyrose, moccasin, navajowhite, navy,
+            mintcream, mistyrose, moccasin, navajowhite, rgb(42, 42, 53),
             oldlace, olive, olivedrab, orange, orangered,
             orchid, palegoldenrod, palegreen, paleturquoise,
             palevioletred, papayawhip, peachpuff, peru, pink,
@@ -240,37 +276,4 @@ iframe::-webkit-scrollbar-thumb:hover {
             springgreen, steelblue, tan, teal, thistle, tomato,
             yellow, yellowgreen;
 
-}
-.fa, .fab, .fas, .far{
-  color: rgb(218, 218, 218) !important;
-}
-.fa:hover, .fab:hover, .fas:hover, .far:hover{
-  color: rgb(255, 255, 255) !important;
-}
-
-div.Select-control {
-  background-color: #ffffff62;
-  border-radius: 4px;
-  border: 1px solid var(--info) !important;
-  display: table;
-  border-spacing: 0;
-  border-collapse: separate;
-  height: 36px;
-  overflow: hidden;
-  }
-
-.Select-value-label{
-  color: #FFFFFF !important; 
-  }
- html{
-   font-size: 0.8rem !important;
- }
-  
-b,.titre{
-  font-family: 'Teko', sans-serif;
-  font-weight: bold;
-  font-size: larger;
-  }
-.modebar{
-    display: none !important;
 }
