@@ -9,8 +9,8 @@ Ce tableau de bord (dashboard) s'inscrit dans le cadre d'un projet académique d
 * Notebook of data preprocessing : [live in colab](https://colab.research.google.com/drive/1D9tW1ulNPmK90rdm2jBOfPIKudBT-ULW?usp=sharing) or in [github](https://github.com/Hamid-abdellaoui/Morocco_Exchange_VIZ/blob/master/Data/Data_prep.ipynb)
 <br><br>
 ## Used techs:
-* Dash-html-compenents , dash-bootstrap-compenents, css  for front-end & layouts
-* Python & jupyter notebook for data preprocessing
+* Front-end & layouts: Dash-html-compenents , dash-bootstrap-compenents, css
+* Data preprocessing: usning  Python & jupyter notebook (pandas, numpy...)
 * Dash for rendering a dash APP & plotly for ploting graphs and charts
 * Git for version controll & Heroku CLI for deployement
 <br><br>
