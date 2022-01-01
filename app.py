@@ -323,7 +323,7 @@ def myf(Title,theid):
                                       'font-size':'13px'
                                     } ,
                                     value=pays_export0.columns[0],
-                                    clearable=True,searchable=True,
+                                    clearable=True,searchable=False,
                                 ),md=6,sm=6,lg=6,xl=6),
                         dbc.Col(html.Div(Title),md=6,sm=6,lg=6,xl=6)
                         ]),
@@ -664,7 +664,7 @@ def render_page_content(pathname):
                         ),
                         html.P("le notebook suivant montre ces étapes :"),
                         html.Iframe(
-                            src="assets/Data_prep.html", width="100%", height="530px"
+                            src="assets/Data_prep.html", width="100%", height="560px"
                         ),
                     ],
                     className="mycard",
@@ -875,5 +875,5 @@ if __name__ == "__main__":
     app.run_server(
         port=8080,
         debug=False,
-        #host="0.0.0.0",
+        host="0.0.0.0",
     )

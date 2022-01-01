@@ -7,28 +7,109 @@
     <link rel="stylesheet" href="custom.css" />
     <link rel="stylesheet" href="theme.css" />
     <style>
-      .gist{
+      .gist {
         width: 100%;
         margin-right: 0 !important;
       }
+
+      *::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 0px lightseagreen;
+        background-color: #f1f0f0;
+        border-radius: 0px;
+      }
+
+      *::-webkit-scrollbar {
+        width: 0px;
+        background-color: #f5f5f5;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 0 0px rgba(49, 139, 102, 0.911);
+        background-color: rgba(89, 129, 112, 0.164);
+      }
+      *::-webkit-scrollbar-thumb:hover {
+        background-image: -webkit-gradient(
+          linear,
+          40% 0%,
+          75% 84%,
+          from(rgba(25, 138, 132, 0.541)),
+          to(#19915991),
+          color-stop(0.6, #4ce6a696)
+        );
+      }
+      * > #menu {
+        position: fixed;
+      }
+      #menu {
+        position: absolute;
+      }
+      #menu {
+        position: fixed;
+        right: 0;
+        top: 35%;
+        height: max-content;
+        width: 15em;
+        margin: -2.5em 0 0 0;
+        z-index: 5;
+        background: hsla(0, 0%, 79%, 0.7);
+        color: rgb(10, 5, 54);
+        font-weight: bold;
+        font-size: x-small;
+        text-align: left;
+        border: 1px solid rgba(10, 194, 170, 0.5);
+        border-right: none;
+        padding: 0.5em 0.5em 0.5em 2.5em;
+        border-radius: 3em 0em 0em 3em;
+      }
+      ul,
+      blockquote {
+        padding-left: 1em;
+      }
+      ul{
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        list-style-type: none;
+      }
+      
     </style>
     <title>Embede notebook</title>
   </head>
   <body style="background-color: #ffffff00">
     <div class="col text-center">
-      <div class=" bg-dark border border-info rounded">
+      <div class="bg-dark border border-info rounded">
         If it shows the next message:
-        <b><i>The notebook took too long to render</i></b> 
+        <b><i>The notebook took too long to render</i></b>
         check your network connection & actualise the page or check
         <a
           class="link"
-          href="https://colab.research.google.com/gist/Hamid-abdellaoui/7a3242b647c3ae6c7705c01a5084c4bc/data_prep.ipynb"
+          href="https://colab.research.google.com/drive/1D9tW1ulNPmK90rdm2jBOfPIKudBT-ULW?usp=sharing"
           >Live on Google Colab</a
         >
       </div>
       <br /><br />
     </div>
+
+    <ul id="menu">
+      <li><a href="#1">1. Exploring Data</a></li>
+      <li><a href="#2">2. Handling missing values</a></li>
+      <li><a href="#3">3. Extraction de sous base de données</a></li>
+      <li><a href="#4">4. From Extraction , manipulating to visualisation</a></li>
+    </ul>
+
     <div class="gist">
-    <script src="https://gist.github.com/Hamid-abdellaoui/7a3242b647c3ae6c7705c01a5084c4bc.js"></script></div>
+      <div class="gist" id="1"><script src="https://gist.github.com/Hamid-abdellaoui/e3666fd4d0f905b2047814ce0045bd63.js"></script></div><br>
+      <div class="gist" id="2"><script src="https://gist.github.com/Hamid-abdellaoui/7f00282289d47c89d316f354ba5558a6.js"></script></div><br>
+      <div class="gist" id="3"><script src="https://gist.github.com/Hamid-abdellaoui/ad58c7cf6a1a48995600772ea3e6595c.js"></script></div><br>
+      <div class="gist" id="4"><script src="https://gist.github.com/Hamid-abdellaoui/54ef72dd7112c117f39f34eb7981b2f2.js"></script></div><br>
+      
+      
+      
+    </div>
   </body>
 </html>
