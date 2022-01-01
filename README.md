@@ -22,8 +22,8 @@ Ce tableau de bord (dashboard) s'inscrit dans le cadre d'un projet académique d
 <table>
   <thead>
     <tr>
-      <th>Light mode &nbsp; &nbsp; &nbsp; &nbsp;</th>
-      <th> Dark mode &nbsp; &nbsp; &nbsp; &nbsp;</th>
+      <th>Light mode &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
+      <th> Dark mode &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
     </tr>
   </thead>
   <tr>
