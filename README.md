@@ -1,6 +1,5 @@
 # Morocco Exchange Dashboard
 Ce tableau de bord (dashboard) s'inscrit dans le cadre d'un projet académique de Data visualisation
-
 <br>
 
 ## A PROPOS 
