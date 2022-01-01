@@ -35,7 +35,7 @@ Ce tableau de bord (dashboard) s'inscrit dans le cadre d'un projet académique d
 ## Wanna try it on your computer ?
 
 
-* Clone this repo en tapant cette command (vous devez avoir Git installé et bien configuré, if u dont have it just download it using the download button ):
+* Clone this repo en tapant cette command (vous devez avoir Git installé et bien configuré, if u dont have it just download the repository using the download button ):
 
 ```
 git clone https://github.com/Hamid-abdellaoui/Morocco_Exchange_VIZ.git
