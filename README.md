@@ -5,7 +5,7 @@ Ce tableau de bord (dashboard) s'inscrit dans le cadre d'un projet académique d
 ## A PROPOS 
 <br>
 
-* Live APP : here [is the link](https://morocco-exchange-dash.herokuapp.com/)
+* Live APP : here [is the link](https://maroxchangedash.onrender.com/)
 * Notebook of data preprocessing : [live in colab](https://colab.research.google.com/drive/1D9tW1ulNPmK90rdm2jBOfPIKudBT-ULW?usp=sharing) or in [github](https://github.com/Hamid-abdellaoui/Morocco_Exchange_VIZ/blob/master/Data/Data_prep.ipynb)
 <br><br>
 ## Used techs:
@@ -51,3 +51,4 @@ pip install -r requirements.txt
 >> - configurer python  3.8 comme Interpreter
 >> 
 >> - Aand you are done , just run it  !
+EDIT  02-07-2023 : Heroku is no longer providing a free hosting, so we are migrating to [Render](https://render.com/)
